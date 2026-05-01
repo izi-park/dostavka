@@ -6,65 +6,134 @@
 <title>Изи Парк — подключение курьеров Яндекс Про</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #222;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root{
+    --bg:#0b0c10;
+    --card:#14161b;
+    --text:#e6e6e6;
+    --muted:#a7a7a7;
+    --accent:#ff7a18;
 }
 
-header {
-    background: #111;
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
+*{
+    box-sizing:border-box;
 }
 
-.btn {
-    display: inline-block;
-    padding: 15px 25px;
-    background: #ffcc00;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
+body{
+    margin:0;
+    font-family:Inter, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
-.hero {
-    background: linear-gradient(to right, #111, #333);
-    color: white;
-    padding: 80px 30px;
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(10,10,12,0.85);
+    backdrop-filter: blur(10px);
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+.logo{
+    font-weight:700;
+    color:var(--accent);
+    letter-spacing:1px;
 }
 
-.section {
-    padding: 60px 30px;
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:14px 20px;
+    background:linear-gradient(135deg,var(--accent),#ff4d00);
+    color:#111;
+    font-weight:700;
+    text-decoration:none;
+    border-radius:10px;
+    transition:0.2s;
+    box-shadow:0 10px 25px rgba(255,122,24,0.25);
 }
 
-.block {
-    margin-bottom: 30px;
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.highlight {
-    font-size: 22px;
-    font-weight: bold;
+/* HERO */
+.hero{
+    padding:90px 25px;
+    text-align:left;
+    background:
+        radial-gradient(circle at top, rgba(255,122,24,0.15), transparent 40%),
+        linear-gradient(180deg,#0b0c10,#0e0f14);
 }
 
-.rules {
-    background: #f4f4f4;
-    padding: 25px;
-    border-radius: 10px;
+.hero h1{
+    font-size:42px;
+    margin:0 0 15px;
 }
 
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 30px;
+.highlight{
+    font-size:20px;
+    font-weight:600;
+    color:var(--accent);
+}
+
+.hero p{
+    color:var(--muted);
+}
+
+/* SECTIONS */
+.section{
+    padding:60px 25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+h2{
+    font-size:26px;
+    margin-bottom:25px;
+}
+
+/* CARDS */
+.block{
+    background:var(--card);
+    padding:18px 20px;
+    margin-bottom:12px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.05);
+    transition:0.2s;
+}
+
+.block:hover{
+    border-color:rgba(255,122,24,0.4);
+    transform:translateX(3px);
+}
+
+.rules{
+    background:var(--card);
+    padding:25px;
+    border-radius:16px;
+    border:1px solid rgba(255,122,24,0.25);
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* MOBILE */
+max-width:768px{
+    .hero h1{
+        font-size:30px;
+    }
 }
 </style>
 
@@ -73,17 +142,20 @@ footer {
 <body>
 
 <header>
-    <div><strong>Изи Парк</strong></div>
-    <a href="https://vk.com/omskizipark" class="btn">Написать ВКонтакте</a>
-    
+    <div class="logo">Изи Парк</div>
+
+    <div style="display:flex; gap:10px;">
+        <a href="tel:+79339922926" class="btn">Позвонить</a>
+        <a href="https://vk.com/omskizipark" class="btn">ВКонтакте</a>
+    </div>
 </header>
-    <a href="tel:+79339922926" class="btn">Позвонить</a>
-</header>   
-    
+
 <section class="hero">
     <h1>Зарабатывай курьером в Яндекс Про</h1>
     <p class="highlight">Доход от 2000 до 8000 ₽ в день</p>
     <p>Пешком, на вело, авто или грузовом транспорте</p>
+
+    
 
     <a href="#register" class="btn">Начать зарабатывать</a>
 </section>
@@ -97,7 +169,7 @@ footer {
     <div class="block">✔ Поддержка от парка, моментальные выплаты и акциии</div>
 </section>
 
-<section class="section">
+    <section class="section">
     <h2>Кого подключаем</h2>
 
     <div class="block">🚶 Пешие курьеры</div>
@@ -105,7 +177,7 @@ footer {
     <div class="block">🚗 Автокурьеры</div>
     <div class="block">🚚 Грузовые курьеры</div>
 
-    <p><strong>Работа через парковую самозанятость или ИП</strong></p>
+    <div class="block"><strong>Работа через парковую самозанятость или ИП</strong></div>
 </section>
 
 <section class="section">
@@ -119,8 +191,6 @@ footer {
 <section class="section rules" id="register">
     <h2>ВАЖНО ЗНАТЬ ❗️</h2>
 
-    <p><strong>Чтобы избежать штрафов и проблем:</strong></p>
-
     <p>1️⃣ ВНИМАТЕЛЬНО сверяйте номер заказа в приложении и на самой посылке</p>
     <p>2️⃣ Проверяйте количество точек в заказе. В мультизаказе несколько посылок в одном месте</p>
     <p>3️⃣ НЕ нажимайте статус "посылка получена", если не забрали заказ❗️</p>
@@ -132,14 +202,15 @@ footer {
 
     
 
-    <a href="https://forms.fleet.yandex.ru/register?ref_id=9b19cd7f604441c7abbb312cb9fb6160" class="btn">
+    
+<a href="https://forms.fleet.yandex.ru/register?ref_id=9b19cd7f604441c7abbb312cb9fb6160" class="btn">
         ПЕРЕЙТИ К РЕГИСТРАЦИИ
     </a>
 </section>
 
 <section class="section">
     <h2>Остались вопросы?</h2>
-    <p>После регистрации с вами свяжется парк и поможет начать работу</p>
+    <p style="color:#a7a7a7">После регистрации с вами свяжется парк</p>
 
     <a href="https://forms.fleet.yandex.ru/register?ref_id=9b19cd7f604441c7abbb312cb9fb6160" class="btn">
         Подключиться сейчас
@@ -147,8 +218,13 @@ footer {
 </section>
 
 <footer>
-    <p>© 2023 Изи Парк</p>
+    © 2023 Изи Парк
 </footer>
 
 </body>
 </html>
+
+
+
+
+
